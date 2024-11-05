@@ -39,63 +39,63 @@ static int razer_get_report(struct usb_device *usb_dev, struct razer_report *req
 {
     unsigned int index = 0;
     switch (usb_dev->descriptor.idProduct) {
-    // These devices require longer waits to read their firmware, serial, and other setting values
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-        return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_NEW_MOUSE_RECEIVER_WAIT_MIN_US, RAZER_NEW_MOUSE_RECEIVER_WAIT_MAX_US);
-        break;
+        // These devices require longer waits to read their firmware, serial, and other setting values
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+            return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_NEW_MOUSE_RECEIVER_WAIT_MIN_US, RAZER_NEW_MOUSE_RECEIVER_WAIT_MAX_US);
+            break;
 
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-        return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_ATHERIS_RECEIVER_WAIT_MIN_US, RAZER_ATHERIS_RECEIVER_WAIT_MAX_US);
-        break;
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+            return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_ATHERIS_RECEIVER_WAIT_MIN_US, RAZER_ATHERIS_RECEIVER_WAIT_MAX_US);
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-        return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_VIPER_MOUSE_RECEIVER_WAIT_MIN_US, RAZER_VIPER_MOUSE_RECEIVER_WAIT_MAX_US);
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+            return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_VIPER_MOUSE_RECEIVER_WAIT_MIN_US, RAZER_VIPER_MOUSE_RECEIVER_WAIT_MAX_US);
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-        index = 0x03;
-        return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_MOUSE_WAIT_MIN_US, RAZER_MOUSE_WAIT_MAX_US);
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+            index = 0x03;
+            return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_MOUSE_WAIT_MIN_US, RAZER_MOUSE_WAIT_MAX_US);
+            break;
 
-    default:
-        return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_MOUSE_WAIT_MIN_US, RAZER_MOUSE_WAIT_MAX_US);
+        default:
+            return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_MOUSE_WAIT_MIN_US, RAZER_MOUSE_WAIT_MAX_US);
     }
 }
 
@@ -121,26 +121,26 @@ static int razer_send_payload(struct razer_mouse_device *device, struct razer_re
         response->command_class != request->command_class ||
         response->command_id.id != request->command_id.id) {
         print_erroneous_report(response, "razermouse", "Response doesn't match request");
-        return -EIO;
-    }
+    return -EIO;
+        }
 
-    switch (response->status) {
-    case RAZER_CMD_BUSY:
-        // TODO: Check if this should be an error.
-        // print_erroneous_report(&response, "razermouse", "Device is busy");
-        break;
-    case RAZER_CMD_FAILURE:
-        print_erroneous_report(response, "razermouse", "Command failed");
-        return -EIO;
-    case RAZER_CMD_NOT_SUPPORTED:
-        print_erroneous_report(response, "razermouse", "Command not supported");
-        return -EIO;
-    case RAZER_CMD_TIMEOUT:
-        print_erroneous_report(response, "razermouse", "Command timed out");
-        return -EIO;
-    }
+        switch (response->status) {
+            case RAZER_CMD_BUSY:
+                // TODO: Check if this should be an error.
+                // print_erroneous_report(&response, "razermouse", "Device is busy");
+                break;
+            case RAZER_CMD_FAILURE:
+                print_erroneous_report(response, "razermouse", "Command failed");
+                return -EIO;
+            case RAZER_CMD_NOT_SUPPORTED:
+                print_erroneous_report(response, "razermouse", "Command not supported");
+                return -EIO;
+            case RAZER_CMD_TIMEOUT:
+                print_erroneous_report(response, "razermouse", "Command timed out");
+                return -EIO;
+        }
 
-    return 0;
+        return 0;
 }
 
 /*
@@ -150,25 +150,25 @@ static int razer_send_payload(struct razer_mouse_device *device, struct razer_re
 static int deathadder3_5g_set_led_state(struct razer_mouse_device *device, unsigned char led_id, bool enabled)
 {
     switch (led_id) {
-    case SCROLL_WHEEL_LED:
-        if (enabled) {
-            device->da3_5g.leds |= 0x02;
-        } else {
-            device->da3_5g.leds &= ~(0x02);
-        }
-        break;
+        case SCROLL_WHEEL_LED:
+            if (enabled) {
+                device->da3_5g.leds |= 0x02;
+            } else {
+                device->da3_5g.leds &= ~(0x02);
+            }
+            break;
 
-    case LOGO_LED:
-        if (enabled) {
-            device->da3_5g.leds |= 0x01;
-        } else {
-            device->da3_5g.leds &= ~(0x01);
-        }
-        break;
+        case LOGO_LED:
+            if (enabled) {
+                device->da3_5g.leds |= 0x01;
+            } else {
+                device->da3_5g.leds &= ~(0x01);
+            }
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: Invalid led_id on DeathAdder 3.5G\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: Invalid led_id on DeathAdder 3.5G\n");
+            return -EINVAL;
     }
 
     mutex_lock(&device->lock);
@@ -181,18 +181,18 @@ static int deathadder3_5g_set_led_state(struct razer_mouse_device *device, unsig
 static void deathadder3_5g_set_poll_rate(struct razer_mouse_device *device, unsigned short poll_rate)
 {
     switch(poll_rate) {
-    case 1000:
-        device->da3_5g.poll = 1;
-        break;
-    case 500:
-        device->da3_5g.poll = 2;
-        break;
-    case 125:
-        device->da3_5g.poll = 3;
-        break;
-    default: // 500
-        device->da3_5g.poll = 2;
-        break;
+        case 1000:
+            device->da3_5g.poll = 1;
+            break;
+        case 500:
+            device->da3_5g.poll = 2;
+            break;
+        case 125:
+            device->da3_5g.poll = 3;
+            break;
+        default: // 500
+            device->da3_5g.poll = 2;
+            break;
     }
 
     mutex_lock(&device->lock);
@@ -203,19 +203,19 @@ static void deathadder3_5g_set_poll_rate(struct razer_mouse_device *device, unsi
 static void deathadder3_5g_set_dpi(struct razer_mouse_device *device, unsigned short dpi)
 {
     switch(dpi) {
-    case 450:
-        device->da3_5g.dpi = 4;
-        break;
-    case 900:
-        device->da3_5g.dpi = 3;
-        break;
-    case 1800:
-        device->da3_5g.dpi = 2;
-        break;
-    case 3500:
-    default:
-        device->da3_5g.dpi = 1;
-        break;
+        case 450:
+            device->da3_5g.dpi = 4;
+            break;
+        case 900:
+            device->da3_5g.dpi = 3;
+            break;
+        case 1800:
+            device->da3_5g.dpi = 2;
+            break;
+        case 3500:
+        default:
+            device->da3_5g.dpi = 1;
+            break;
     }
 
     mutex_lock(&device->lock);
@@ -226,23 +226,23 @@ static void deathadder3_5g_set_dpi(struct razer_mouse_device *device, unsigned s
 static int orochi_2011_set_led_state(struct razer_mouse_device *device, unsigned char led_id, bool enabled)
 {
     switch (led_id) {
-    case SCROLL_WHEEL_LED:
-        if (enabled) {
-            device->orochi2011.led |= 0b00000001;
-        } else {
-            device->orochi2011.led &= 0b11111110;
-        }
-        break;
-    case LOGO_LED:
-        if (enabled) {
-            device->orochi2011.led |= 0b00000010;
-        } else {
-            device->orochi2011.led &= 0b11111101;
-        }
-        break;
-    default:
-        printk(KERN_WARNING "razermouse: Invalid led_id on Orochi 2011\n");
-        return -EINVAL;
+        case SCROLL_WHEEL_LED:
+            if (enabled) {
+                device->orochi2011.led |= 0b00000001;
+            } else {
+                device->orochi2011.led &= 0b11111110;
+            }
+            break;
+        case LOGO_LED:
+            if (enabled) {
+                device->orochi2011.led |= 0b00000010;
+            } else {
+                device->orochi2011.led &= 0b11111101;
+            }
+            break;
+        default:
+            printk(KERN_WARNING "razermouse: Invalid led_id on Orochi 2011\n");
+            return -EINVAL;
     }
 
     return 0;
@@ -274,393 +274,394 @@ static ssize_t razer_attr_read_device_type(struct device *dev, struct device_att
     char *device_type;
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-        device_type = "Razer DeathAdder 3.5G\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        device_type = "Razer DeathAdder 3.5G Black\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
-        device_type = "Razer Mamba 2012 (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-        device_type = "Razer Mamba 2012 (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-        device_type = "Razer Mamba (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-        device_type = "Razer Mamba (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-        device_type = "Razer Mamba Tournament Edition\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS:
-        device_type = "Razer Abyssus 2014\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-        device_type = "Razer Abyssus 1800\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
-        device_type = "Razer Abyssus 2000\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_IMPERATOR:
-        device_type = "Razer Imperator 2012\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OUROBOROS:
-        device_type = "Razer Ouroboros\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        device_type = "Razer Orochi 2011\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-        device_type = "Razer DeathAdder 2013\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_2013:
-        device_type = "Razer Orochi 2013\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-        device_type = "Razer Orochi (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-        device_type = "Razer DeathAdder Chroma\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-        device_type = "Razer Naga Hex (Red)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_HEX:
-        device_type = "Razer Naga Hex\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA:
-        device_type = "Razer Naga\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_2012:
-        device_type = "Razer Naga 2012\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-        device_type = "Razer Naga Epic\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_2014:
-        device_type = "Razer Naga 2014\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_TAIPAN:
-        device_type = "Razer Taipan\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        device_type = "Razer Naga Hex V2\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-        device_type = "Razer Naga Chroma\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-        device_type = "Razer Naga X\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-        device_type = "Razer DeathAdder Elite\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-        device_type = "Razer Abyssus V2\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        device_type = "Razer Diamondback Chroma\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-        device_type = "Razer DeathAdder 3500\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-        device_type = "Razer Lancehead (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-        device_type = "Razer Lancehead (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-        device_type = "Razer Lancehead Tournament Edition\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-        device_type = "Razer Mamba Elite\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-        device_type = "Razer DeathAdder Essential\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-        device_type = "Razer DeathAdder Essential (2021)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-        device_type = "Razer Naga Trinity\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-        device_type = "Razer DeathAdder 1800\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-        device_type = "Razer Lancehead Wireless (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-        device_type = "Razer Lancehead Wireless (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-        device_type = "Razer Mamba Wireless (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-        device_type = "Razer Mamba Wireless (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-        device_type = "Razer Abyssus Elite (D.Va Edition)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-        device_type = "Razer Abyssus Essential\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-        device_type = "Razer DeathAdder Essential (White Edition)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER:
-        device_type = "Razer Viper\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-        device_type = "Razer Viper Mini\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-        device_type = "Razer Viper Mini Signature Edition (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-        device_type = "Razer Viper Mini Signature Edition (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-        device_type = "Razer Viper Ultimate (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-        device_type = "Razer Viper Ultimate (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-        device_type = "Razer Viper V2 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-        device_type = "Razer Viper V2 Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK:
-        device_type = "Razer Basilisk\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-        device_type = "Razer Basilisk Essential\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-        device_type = "Razer Basilisk Ultimate (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-        device_type = "Razer Basilisk Ultimate (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-        device_type = "Razer Basilisk V2\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-        device_type = "Razer Basilisk V3\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-        device_type = "Razer DeathAdder V2\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-        device_type = "Razer DeathAdder V2 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-        device_type = "Razer DeathAdder V2 Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-        device_type = "Razer DeathAdder V3\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-        device_type = "Razer DeathAdder V3 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-        device_type = "Razer DeathAdder V3 Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-        device_type = "Razer HyperPolling Wireless Dongle\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-        device_type = "Razer Basilisk V3 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        device_type = "Razer Basilisk V3 Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        device_type = "Razer DeathAdder V2 Mini\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
-        device_type = "Razer DeathAdder 2000\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-        device_type = "Razer DeathAdder V2 X HyperSpeed\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-        device_type = "Razer Atheris (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
-        device_type = "Razer Basilisk X HyperSpeed\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-        device_type = "Razer Naga Left-Handed Edition 2020\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-        device_type = "Razer Naga Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-        device_type = "Razer Naga Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-        device_type = "Razer Viper 8KHz\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-        device_type = "Razer Orochi V2 (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-        device_type = "Razer Orochi V2 (Bluetooth)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-        device_type = "Razer Pro Click (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-        device_type = "Razer Pro Click (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-        device_type = "Razer Naga Epic Chroma\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-        device_type = "Razer Naga Epic Chroma Dock\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-        device_type = "Razer Pro Click Mini (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-        device_type = "Razer DeathAdder V2 Lite\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_COBRA:
-        device_type = "Razer Cobra\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-        device_type = "Razer Cobra Pro (Wireless)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-        device_type = "Razer Cobra Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-        device_type = "Razer Viper V3 HyperSpeed\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-        device_type = "Razer Naga V2 HyperSpeed (Receiver)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-        device_type = "Razer Basilisk V3 X HyperSpeed\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-        device_type = "Razer Viper V3 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-        device_type = "Razer Viper V3 Pro (Wireless)\n";
-
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-        device_type = "Razer Naga V2 Pro (Wired)\n";
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        device_type = "Razer Naga V2 Pro (Wireless)\n";
-        break;
-
-    default:
-        device_type = "Unknown Device\n";
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+            device_type = "Razer DeathAdder 3.5G\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            device_type = "Razer DeathAdder 3.5G Black\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
+            device_type = "Razer Mamba 2012 (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+            device_type = "Razer Mamba 2012 (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+            device_type = "Razer Mamba (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+            device_type = "Razer Mamba (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+            device_type = "Razer Mamba Tournament Edition\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS:
+            device_type = "Razer Abyssus 2014\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+            device_type = "Razer Abyssus 1800\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
+            device_type = "Razer Abyssus 2000\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_IMPERATOR:
+            device_type = "Razer Imperator 2012\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OUROBOROS:
+            device_type = "Razer Ouroboros\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            device_type = "Razer Orochi 2011\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+            device_type = "Razer DeathAdder 2013\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_2013:
+            device_type = "Razer Orochi 2013\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+            device_type = "Razer Orochi (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+            device_type = "Razer DeathAdder Chroma\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+            device_type = "Razer Naga Hex (Red)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_HEX:
+            device_type = "Razer Naga Hex\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA:
+            device_type = "Razer Naga\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_2012:
+            device_type = "Razer Naga 2012\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+            device_type = "Razer Naga Epic\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_2014:
+            device_type = "Razer Naga 2014\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_TAIPAN:
+            device_type = "Razer Taipan\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            device_type = "Razer Naga Hex V2\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+            device_type = "Razer Naga Chroma\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+            device_type = "Razer Naga X\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+            device_type = "Razer DeathAdder Elite\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+            device_type = "Razer Abyssus V2\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+            device_type = "Razer Diamondback Chroma\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+            device_type = "Razer DeathAdder 3500\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+            device_type = "Razer Lancehead (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+            device_type = "Razer Lancehead (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+            device_type = "Razer Lancehead Tournament Edition\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+            device_type = "Razer Mamba Elite\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+            device_type = "Razer DeathAdder Essential\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+            device_type = "Razer DeathAdder Essential (2021)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
+            device_type = "Razer Naga Trinity\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+            device_type = "Razer DeathAdder 1800\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+            device_type = "Razer Lancehead Wireless (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+            device_type = "Razer Lancehead Wireless (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+            device_type = "Razer Mamba Wireless (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+            device_type = "Razer Mamba Wireless (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+            device_type = "Razer Abyssus Elite (D.Va Edition)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+            device_type = "Razer Abyssus Essential\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+            device_type = "Razer DeathAdder Essential (White Edition)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER:
+            device_type = "Razer Viper\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+            device_type = "Razer Viper Mini\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+            device_type = "Razer Viper Mini Signature Edition (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+            device_type = "Razer Viper Mini Signature Edition (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+            device_type = "Razer Viper Ultimate (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+            device_type = "Razer Viper Ultimate (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+            device_type = "Razer Viper V2 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+            device_type = "Razer Viper V2 Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK:
+            device_type = "Razer Basilisk\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+            device_type = "Razer Basilisk Essential\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+            device_type = "Razer Basilisk Ultimate (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+            device_type = "Razer Basilisk Ultimate (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+            device_type = "Razer Basilisk V2\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+            device_type = "Razer Basilisk V3\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+            device_type = "Razer DeathAdder V2\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+            device_type = "Razer DeathAdder V2 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+            device_type = "Razer DeathAdder V2 Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+            device_type = "Razer DeathAdder V3\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+            device_type = "Razer DeathAdder V3 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+            device_type = "Razer DeathAdder V3 Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+            device_type = "Razer HyperPolling Wireless Dongle\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+            device_type = "Razer Basilisk V3 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            device_type = "Razer Basilisk V3 Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            device_type = "Razer DeathAdder V2 Mini\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
+            device_type = "Razer DeathAdder 2000\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+            device_type = "Razer DeathAdder V2 X HyperSpeed\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+            device_type = "Razer Atheris (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
+            device_type = "Razer Basilisk X HyperSpeed\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+            device_type = "Razer Naga Left-Handed Edition 2020\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+            device_type = "Razer Naga Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+            device_type = "Razer Naga Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+            device_type = "Razer Viper 8KHz\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+            device_type = "Razer Orochi V2 (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+            device_type = "Razer Orochi V2 (Bluetooth)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+            device_type = "Razer Pro Click (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+            device_type = "Razer Pro Click (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+            device_type = "Razer Naga Epic Chroma\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
+            device_type = "Razer Naga Epic Chroma Dock\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+            device_type = "Razer Pro Click Mini (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+            device_type = "Razer DeathAdder V2 Lite\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_COBRA:
+            device_type = "Razer Cobra\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+            device_type = "Razer Cobra Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+            device_type = "Razer Cobra Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+            device_type = "Razer Viper V3 HyperSpeed\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+            device_type = "Razer Naga V2 HyperSpeed (Receiver)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+            device_type = "Razer Basilisk V3 X HyperSpeed\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+            device_type = "Razer Viper V3 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+            device_type = "Razer Viper V3 Pro (Wireless)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+            device_type = "Razer Naga V2 Pro (Wired)\n";
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            device_type = "Razer Naga V2 Pro (Wireless)\n";
+            break;
+
+        default:
+            device_type = "Unknown Device\n";
     }
 
     return sprintf(buf, device_type);
@@ -680,77 +681,77 @@ static ssize_t razer_attr_read_firmware_version(struct device *dev, struct devic
     request = razer_chroma_standard_get_firmware_version();
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Orochi 2011 doesn't have FW
-        return sprintf(buf, "v%d.%d\n", 9, 99);
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Orochi 2011 doesn't have FW
+            return sprintf(buf, "v%d.%d\n", 9, 99);
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // DA don't think supports fw, its proper old
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        return sprintf(buf, "v%d.%d\n", 0x01, 0x00);
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // DA don't think supports fw, its proper old
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            return sprintf(buf, "v%d.%d\n", 0x01, 0x00);
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -790,25 +791,25 @@ static ssize_t razer_attr_write_matrix_effect_none(struct device *dev, struct de
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_none(VARSTORE, ZERO_LED);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_none(VARSTORE, ZERO_LED);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS: // TODO: this is probably wrong?
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED: // TODO: this is probably wrong?
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_standard_matrix_effect_none();
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS: // TODO: this is probably wrong?
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED: // TODO: this is probably wrong?
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_standard_matrix_effect_none();
+            request.transaction_id.id = 0xFF;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -828,61 +829,61 @@ static ssize_t razer_attr_write_matrix_effect_custom(struct device *dev, struct 
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2: // TODO look into this think its extended effects
-        request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2: // TODO look into this think its extended effects
+            request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_custom_frame();
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_custom_frame();
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_custom_frame();
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_custom_frame();
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-        request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
-        request.transaction_id.id = 0x80;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+            request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
+            request.transaction_id.id = 0x80;
+            break;
 
-    default:
-        request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request = razer_chroma_standard_matrix_effect_custom_frame(NOSTORE);
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -907,39 +908,39 @@ static ssize_t razer_attr_write_matrix_effect_static(struct device *dev, struct 
     }
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-        // Some sort of mode switcher required after initialization and before color switching
-        request = get_razer_report(0x0f, 0x02, 0x06);
-        request.arguments[0] = 0x00;
-        request.arguments[1] = 0x00;
-        request.arguments[2] = 0x08;
-        request.arguments[3] = 0x00;
-        request.arguments[4] = 0x00;
-        request.arguments[5] = 0x00;
-        request.transaction_id.id = 0x1f;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
+            // Some sort of mode switcher required after initialization and before color switching
+            request = get_razer_report(0x0f, 0x02, 0x06);
+            request.arguments[0] = 0x00;
+            request.arguments[1] = 0x00;
+            request.arguments[2] = 0x08;
+            request.arguments[3] = 0x00;
+            request.arguments[4] = 0x00;
+            request.arguments[5] = 0x00;
+            request.transaction_id.id = 0x1f;
 
-        razer_send_payload(device, &request, &response);
+            razer_send_payload(device, &request, &response);
 
-        request = razer_naga_trinity_effect_static((struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x1f;
-        break;
+            request = razer_naga_trinity_effect_static((struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_static(VARSTORE, ZERO_LED, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_static(VARSTORE, ZERO_LED, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_static not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_static not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -961,18 +962,18 @@ static ssize_t razer_attr_write_matrix_effect_wave(struct device *dev, struct de
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_wave(VARSTORE, ZERO_LED, direction);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_wave(VARSTORE, ZERO_LED, direction);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_wave not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_wave not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -992,26 +993,26 @@ static ssize_t razer_attr_write_matrix_effect_spectrum(struct device *dev, struc
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_mouse_extended_matrix_effect_spectrum(VARSTORE, BACKLIGHT_LED);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_mouse_extended_matrix_effect_spectrum(VARSTORE, BACKLIGHT_LED);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, ZERO_LED);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, ZERO_LED);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_spectrum not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_spectrum not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1039,17 +1040,17 @@ static ssize_t razer_attr_write_matrix_effect_reactive(struct device *dev, struc
     speed = (unsigned char)buf[0];
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_mouse_extended_matrix_effect_reactive(VARSTORE, BACKLIGHT_LED, speed, (struct razer_rgb*)&buf[1]);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_mouse_extended_matrix_effect_reactive(VARSTORE, BACKLIGHT_LED, speed, (struct razer_rgb*)&buf[1]);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_reactive not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_reactive not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1069,31 +1070,31 @@ static ssize_t razer_attr_write_matrix_effect_breath(struct device *dev, struct 
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        switch(count) {
-        case 3: // Single colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_single(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
-            request.transaction_id.id = 0x1f;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            switch(count) {
+                case 3: // Single colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_single(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
+                    request.transaction_id.id = 0x1f;
+                    break;
+
+                case 6: // Dual colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_dual(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
+                    request.transaction_id.id = 0x1f;
+                    break;
+
+                default: // "Random" colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_random(VARSTORE, BACKLIGHT_LED);
+                    request.transaction_id.id = 0x1f;
+                    break;
+            }
             break;
 
-        case 6: // Dual colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_dual(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
-            request.transaction_id.id = 0x1f;
-            break;
-
-        default: // "Random" colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_random(VARSTORE, BACKLIGHT_LED);
-            request.transaction_id.id = 0x1f;
-            break;
-        }
-        break;
-
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_breath not supported for this model\n");
-        return -EINVAL;
+                default:
+                    printk(KERN_WARNING "razermouse: matrix_effect_breath not supported for this model\n");
+                    return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1116,78 +1117,78 @@ static ssize_t razer_attr_read_device_serial(struct device *dev, struct device_a
     request = razer_chroma_standard_get_serial();
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED: // Doesn't have proper serial
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-        return sprintf(buf, "%s\n", &device->serial[0]);
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED: // Doesn't have proper serial
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+            return sprintf(buf, "%s\n", &device->serial[0]);
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-        request.transaction_id.id = 0x08;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+            request.transaction_id.id = 0x08;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1211,54 +1212,54 @@ static ssize_t razer_attr_read_charge_level(struct device *dev, struct device_at
     request = razer_chroma_misc_get_battery_level();
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1280,60 +1281,60 @@ static ssize_t razer_attr_read_charge_status(struct device *dev, struct device_a
     request = razer_chroma_misc_get_charging_status();
 
     switch (device->usb_pid) {
-    // Wireless mice that don't support is_charging
-    // Use AA batteries
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-        return sprintf(buf, "0\n");
-        break;
+        // Wireless mice that don't support is_charging
+        // Use AA batteries
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+            return sprintf(buf, "0\n");
+            break;
 
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1359,14 +1360,14 @@ static ssize_t razer_attr_write_charge_effect(struct device *dev, struct device_
 
     request = razer_chroma_misc_set_dock_charge_type(buf[0]);
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1398,14 +1399,14 @@ static ssize_t razer_attr_write_charge_colour(struct device *dev, struct device_
 
     request = razer_chroma_standard_set_led_rgb(NOSTORE, BATTERY_LED, (struct razer_rgb*)&buf[0]);
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1426,113 +1427,113 @@ static ssize_t razer_attr_read_poll_rate(struct device *dev, struct device_attri
     unsigned short polling_rate = 0;
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        switch(device->da3_5g.poll) {
-        case 0x01:
-            polling_rate = 1000;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            switch(device->da3_5g.poll) {
+                case 0x01:
+                    polling_rate = 1000;
+                    break;
+                case 0x02:
+                    polling_rate = 500;
+                    break;
+                case 0x03:
+                    polling_rate = 125;
+                    break;
+            }
+            return sprintf(buf, "%d\n", polling_rate);
             break;
-        case 0x02:
-            polling_rate = 500;
-            break;
-        case 0x03:
-            polling_rate = 125;
-            break;
-        }
-        return sprintf(buf, "%d\n", polling_rate);
-        break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_misc_get_polling_rate();
-        request.transaction_id.id = 0x3f;
-        break;
+                case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_BASILISK:
+                case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+                    request = razer_chroma_misc_get_polling_rate();
+                    request.transaction_id.id = 0x3f;
+                    break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-        request = razer_chroma_misc_get_polling_rate();
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+                case USB_DEVICE_ID_RAZER_NAGA_X:
+                case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_BASILISK_V2:
+                case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+                case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+                    request = razer_chroma_misc_get_polling_rate();
+                    request.transaction_id.id = 0x1f;
+                    break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-        request = razer_chroma_misc_get_polling_rate2();
-        request.transaction_id.id = 0x1f;
+                case USB_DEVICE_ID_RAZER_VIPER_8K:
+                case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+                case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+                case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+                    request = razer_chroma_misc_get_polling_rate2();
+                    request.transaction_id.id = 0x1f;
 
-        razer_send_payload(device, &request, &response);
+                    razer_send_payload(device, &request, &response);
 
-        switch(response.arguments[1]) {
-        case 0x01:
-            polling_rate = 8000;
-            break;
-        case 0x02:
-            polling_rate = 4000;
-            break;
-        case 0x04:
-            polling_rate = 2000;
-            break;
-        case 0x08:
-            polling_rate = 1000;
-            break;
-        case  0x10:
-            polling_rate = 500;
-            break;
-        case  0x40:
-            polling_rate = 125;
-            break;
-        }
+                    switch(response.arguments[1]) {
+                        case 0x01:
+                            polling_rate = 8000;
+                            break;
+                        case 0x02:
+                            polling_rate = 4000;
+                            break;
+                        case 0x04:
+                            polling_rate = 2000;
+                            break;
+                        case 0x08:
+                            polling_rate = 1000;
+                            break;
+                        case  0x10:
+                            polling_rate = 500;
+                            break;
+                        case  0x40:
+                            polling_rate = 125;
+                            break;
+                    }
 
-        return sprintf(buf, "%d\n", polling_rate);
+                    return sprintf(buf, "%d\n", polling_rate);
 
-    default:
-        request = razer_chroma_misc_get_polling_rate();
-        request.transaction_id.id = 0xFF;
-        break;
+                        default:
+                            request = razer_chroma_misc_get_polling_rate();
+                            request.transaction_id.id = 0xFF;
+                            break;
     }
 
     if(device->usb_pid == USB_DEVICE_ID_RAZER_OROCHI_2011) {
@@ -1542,15 +1543,15 @@ static ssize_t razer_attr_read_poll_rate(struct device *dev, struct device_attri
     }
 
     switch(response.arguments[0]) {
-    case 0x01:
-        polling_rate = 1000;
-        break;
-    case  0x02:
-        polling_rate = 500;
-        break;
-    case  0x08:
-        polling_rate = 125;
-        break;
+        case 0x01:
+            polling_rate = 1000;
+            break;
+        case  0x02:
+            polling_rate = 500;
+            break;
+        case  0x08:
+            polling_rate = 125;
+            break;
     }
 
     return sprintf(buf, "%d\n", polling_rate);
@@ -1569,108 +1570,108 @@ static ssize_t razer_attr_write_poll_rate(struct device *dev, struct device_attr
     struct razer_report response = {0};
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        deathadder3_5g_set_poll_rate(device, polling_rate);
-        return count;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            deathadder3_5g_set_poll_rate(device, polling_rate);
+            return count;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        device->orochi2011.poll = polling_rate;
-        request = razer_chroma_misc_set_orochi2011_poll_dpi(device->orochi2011.poll, device->orochi2011.dpi, device->orochi2011.dpi);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            device->orochi2011.poll = polling_rate;
+            request = razer_chroma_misc_set_orochi2011_poll_dpi(device->orochi2011.poll, device->orochi2011.dpi, device->orochi2011.dpi);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_misc_set_polling_rate(polling_rate);
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_misc_set_polling_rate(polling_rate);
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-        request = razer_chroma_misc_set_polling_rate(polling_rate);
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_misc_set_polling_rate(polling_rate);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-        request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x00);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+            request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x00);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request = razer_chroma_misc_set_polling_rate(polling_rate);
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request = razer_chroma_misc_set_polling_rate(polling_rate);
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
 
     // For certain devices, Razer sends each request once with 0x00 and once with 0x01
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-        request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x01);
-        request.transaction_id.id = 0xFF;
-        razer_send_payload(device, &request, &response);
-        break;
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-        request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x01);
-        request.transaction_id.id = 0x1F;
-        razer_send_payload(device, &request, &response);
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+            request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x01);
+            request.transaction_id.id = 0xFF;
+            razer_send_payload(device, &request, &response);
+            break;
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+            request = razer_chroma_misc_set_polling_rate2(polling_rate, 0x01);
+            request.transaction_id.id = 0x1F;
+            razer_send_payload(device, &request, &response);
+            break;
     }
 
     return count;
@@ -1690,39 +1691,39 @@ static ssize_t razer_attr_write_matrix_brightness(struct device *dev, struct dev
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-        request = razer_chroma_misc_set_dock_brightness(brightness);
-        request.transaction_id.id = 0xFF;
-        break;
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED: // TODO: Migrate to backlight_led_brightness
-        request = razer_chroma_standard_set_led_brightness(VARSTORE, BACKLIGHT_LED, brightness);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+            request = razer_chroma_misc_set_dock_brightness(brightness);
+            request.transaction_id.id = 0xFF;
+            break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED: // TODO: Migrate to backlight_led_brightness
+            request = razer_chroma_standard_set_led_brightness(VARSTORE, BACKLIGHT_LED, brightness);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_brightness(VARSTORE, ZERO_LED, brightness);
-        request.transaction_id.id = 0x1F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_brightness(VARSTORE, ZERO_LED, brightness);
+            request.transaction_id.id = 0x1F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-        request = razer_chroma_extended_matrix_brightness(VARSTORE, ZERO_LED, brightness);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
+            request = razer_chroma_extended_matrix_brightness(VARSTORE, ZERO_LED, brightness);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_brightness not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_brightness not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1743,40 +1744,40 @@ static ssize_t razer_attr_read_matrix_brightness(struct device *dev, struct devi
     unsigned char brightness_index = 0x02;
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-        request = razer_chroma_misc_get_dock_brightness();
-        request.transaction_id.id = 0xFF;
-        brightness_index = 0x00;
-        break;
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED: // TODO: Migrate to backlight_led_brightness
-        request = razer_chroma_standard_get_led_brightness(VARSTORE, BACKLIGHT_LED);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+            request = razer_chroma_misc_get_dock_brightness();
+            request.transaction_id.id = 0xFF;
+            brightness_index = 0x00;
+            break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED: // TODO: Migrate to backlight_led_brightness
+            request = razer_chroma_standard_get_led_brightness(VARSTORE, BACKLIGHT_LED);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_get_brightness(VARSTORE, ZERO_LED);
-        request.transaction_id.id = 0x1F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_get_brightness(VARSTORE, ZERO_LED);
+            request.transaction_id.id = 0x1F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-        request = razer_chroma_extended_matrix_get_brightness(VARSTORE, ZERO_LED);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
+            request = razer_chroma_extended_matrix_get_brightness(VARSTORE, ZERO_LED);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_brightness not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_brightness not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1806,77 +1807,77 @@ static ssize_t razer_attr_write_dpi(struct device *dev, struct device_attribute 
 
     // So far I think imperator uses varstore
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        if(count == 2) {
-            dpi_x = (buf[0] << 8) | (buf[1] & 0xFF); // TODO make convenience function
-            deathadder3_5g_set_dpi(device, dpi_x);
-        } else {
-            printk(KERN_WARNING "razermouse: DPI requires 2 bytes\n");
-            return -EINVAL;
-        }
-        return count;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            if(count == 2) {
+                dpi_x = (buf[0] << 8) | (buf[1] & 0xFF); // TODO make convenience function
+                deathadder3_5g_set_dpi(device, dpi_x);
+            } else {
+                printk(KERN_WARNING "razermouse: DPI requires 2 bytes\n");
+                return -EINVAL;
+            }
+            return count;
+            break;
 
-    // Damn naga hex only uses 1 byte per x, y dpi
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX:
-    case USB_DEVICE_ID_RAZER_NAGA:
-    case USB_DEVICE_ID_RAZER_NAGA_2012:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-        if(count == 1) {
-            dpi_x_byte = buf[0];
-            dpi_y_byte = buf[0];
-        } else if (count == 2) {
-            dpi_x_byte = buf[0];
-            dpi_y_byte = buf[1];
-        } else {
-            printk(KERN_WARNING "razermouse: DPI requires 1 byte or 2 bytes\n");
-            return -EINVAL;
-        }
+            // Damn naga hex only uses 1 byte per x, y dpi
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX:
+        case USB_DEVICE_ID_RAZER_NAGA:
+        case USB_DEVICE_ID_RAZER_NAGA_2012:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+            if(count == 1) {
+                dpi_x_byte = buf[0];
+                dpi_y_byte = buf[0];
+            } else if (count == 2) {
+                dpi_x_byte = buf[0];
+                dpi_y_byte = buf[1];
+            } else {
+                printk(KERN_WARNING "razermouse: DPI requires 1 byte or 2 bytes\n");
+                return -EINVAL;
+            }
 
-        request = razer_chroma_misc_set_dpi_xy_byte(dpi_x_byte, dpi_y_byte);
-        request.transaction_id.id = 0xFF;
-        razer_send_payload(device, &request, &response);
-        return count;
+            request = razer_chroma_misc_set_dpi_xy_byte(dpi_x_byte, dpi_y_byte);
+            request.transaction_id.id = 0xFF;
+            razer_send_payload(device, &request, &response);
+            return count;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        if(count == 1) {
-            dpi_x_byte = buf[0];
-            dpi_y_byte = buf[0];
-        } else if (count == 2) {
-            dpi_x_byte = buf[0];
-            dpi_y_byte = buf[1];
-        } else {
-            printk(KERN_WARNING "razermouse: DPI requires 1 byte or 2 bytes\n");
-            return -EINVAL;
-        }
-        device->orochi2011.dpi = dpi_x_byte;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            if(count == 1) {
+                dpi_x_byte = buf[0];
+                dpi_y_byte = buf[0];
+            } else if (count == 2) {
+                dpi_x_byte = buf[0];
+                dpi_y_byte = buf[1];
+            } else {
+                printk(KERN_WARNING "razermouse: DPI requires 1 byte or 2 bytes\n");
+                return -EINVAL;
+            }
+            device->orochi2011.dpi = dpi_x_byte;
 
-        request = razer_chroma_misc_set_orochi2011_poll_dpi(device->orochi2011.poll, dpi_x_byte, dpi_y_byte);
-        request.transaction_id.id = 0xFF;
-        razer_send_payload(device, &request, &response);
-        return count;
+            request = razer_chroma_misc_set_orochi2011_poll_dpi(device->orochi2011.poll, dpi_x_byte, dpi_y_byte);
+            request.transaction_id.id = 0xFF;
+            razer_send_payload(device, &request, &response);
+            return count;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_OROCHI_2013:
-    case USB_DEVICE_ID_RAZER_IMPERATOR:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-        varstore = VARSTORE;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_OROCHI_2013:
+        case USB_DEVICE_ID_RAZER_IMPERATOR:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+            varstore = VARSTORE;
+            break;
 
-    default:
-        varstore = NOSTORE;
-        break;
+        default:
+            varstore = NOSTORE;
+            break;
     }
 
     if (count != 2 && count != 4) {
@@ -1896,68 +1897,68 @@ static ssize_t razer_attr_write_dpi(struct device *dev, struct device_attribute 
     }
 
     switch(device->usb_pid) { // New devices set the device ID properly
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -1980,113 +1981,113 @@ static ssize_t razer_attr_read_dpi(struct device *dev, struct device_attribute *
 
     // So far I think imperator uses varstore
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        switch(device->da3_5g.dpi) {
-        case 0x04:
-            dpi_x = 450;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            switch(device->da3_5g.dpi) {
+                case 0x04:
+                    dpi_x = 450;
+                    break;
+                case 0x03:
+                    dpi_x = 900;
+                    break;
+                case 0x02:
+                    dpi_x = 1800;
+                    break;
+                case 0x01:
+                default:
+                    dpi_x = 3500;
+                    break;
+            }
+            return sprintf(buf, "%u\n", dpi_x);
             break;
-        case 0x03:
-            dpi_x = 900;
-            break;
-        case 0x02:
-            dpi_x = 1800;
-            break;
-        case 0x01:
-        default:
-            dpi_x = 3500;
-            break;
-        }
-        return sprintf(buf, "%u\n", dpi_x);
-        break;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        return sprintf(buf, "%u:%u\n", device->orochi2011.dpi, device->orochi2011.dpi);
-        break;
+                case USB_DEVICE_ID_RAZER_OROCHI_2011:
+                    return sprintf(buf, "%u:%u\n", device->orochi2011.dpi, device->orochi2011.dpi);
+                    break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX:
-    case USB_DEVICE_ID_RAZER_NAGA:
-    case USB_DEVICE_ID_RAZER_NAGA_2012:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-        request = razer_chroma_misc_get_dpi_xy_byte();
-        request.transaction_id.id = 0xFF;
-        break;
+                case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+                case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+                case USB_DEVICE_ID_RAZER_NAGA_HEX:
+                case USB_DEVICE_ID_RAZER_NAGA:
+                case USB_DEVICE_ID_RAZER_NAGA_2012:
+                case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+                    request = razer_chroma_misc_get_dpi_xy_byte();
+                    request.transaction_id.id = 0xFF;
+                    break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_misc_get_dpi_xy(NOSTORE);
-        request.transaction_id.id = 0x1f;
-        break;
+                case USB_DEVICE_ID_RAZER_NAGA_X:
+                case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+                case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+                case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+                case USB_DEVICE_ID_RAZER_BASILISK_V2:
+                case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+                case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+                case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+                case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+                case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+                case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+                    request = razer_chroma_misc_get_dpi_xy(NOSTORE);
+                    request.transaction_id.id = 0x1f;
+                    break;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2013:
-    case USB_DEVICE_ID_RAZER_IMPERATOR:
-        request = razer_chroma_misc_get_dpi_xy(VARSTORE);
-        request.transaction_id.id = 0xFF;
-        break;
+                case USB_DEVICE_ID_RAZER_OROCHI_2013:
+                case USB_DEVICE_ID_RAZER_IMPERATOR:
+                    request = razer_chroma_misc_get_dpi_xy(VARSTORE);
+                    request.transaction_id.id = 0xFF;
+                    break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_misc_get_dpi_xy(NOSTORE);
-        request.transaction_id.id = 0x3f;
-        break;
+                case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_BASILISK:
+                case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+                    request = razer_chroma_misc_get_dpi_xy(NOSTORE);
+                    request.transaction_id.id = 0x3f;
+                    break;
 
-    default:
-        request = razer_chroma_misc_get_dpi_xy(NOSTORE);
-        request.transaction_id.id = 0xFF;
-        break;
+                default:
+                    request = razer_chroma_misc_get_dpi_xy(NOSTORE);
+                    request.transaction_id.id = 0xFF;
+                    break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2099,14 +2100,14 @@ static ssize_t razer_attr_read_dpi(struct device *dev, struct device_attribute *
         device->usb_pid == USB_DEVICE_ID_RAZER_DEATHADDER_2013 ||
         device->usb_pid == USB_DEVICE_ID_RAZER_NAGA_EPIC ||
         device->usb_pid == USB_DEVICE_ID_RAZER_ABYSSUS_1800) { // NagaHex is crap uses only byte for dpi
-        dpi_x = response.arguments[0];
-        dpi_y = response.arguments[1];
-    } else {
-        dpi_x = (response.arguments[1] << 8) | (response.arguments[2] & 0xFF); // Apparently the char buffer is rubbish, as buf[1] somehow can equal FFFFFF80????
-        dpi_y = (response.arguments[3] << 8) | (response.arguments[4] & 0xFF);
-    }
+            dpi_x = response.arguments[0];
+            dpi_y = response.arguments[1];
+        } else {
+            dpi_x = (response.arguments[1] << 8) | (response.arguments[2] & 0xFF); // Apparently the char buffer is rubbish, as buf[1] somehow can equal FFFFFF80????
+            dpi_y = (response.arguments[3] << 8) | (response.arguments[4] & 0xFF);
+        }
 
-    return sprintf(buf, "%u:%u\n", dpi_x, dpi_y);
+        return sprintf(buf, "%u:%u\n", dpi_x, dpi_y);
 }
 
 /**
@@ -2354,41 +2355,41 @@ static ssize_t razer_attr_write_dpi_stages(struct device *dev, struct device_att
     request = razer_chroma_misc_set_dpi_stages(VARSTORE, stages_count, active_stage, dpi);
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2428,41 +2429,41 @@ static ssize_t razer_attr_read_dpi_stages(struct device *dev, struct device_attr
     request = razer_chroma_misc_get_dpi_stages(VARSTORE);
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2520,36 +2521,36 @@ static ssize_t razer_attr_read_device_idle_time(struct device *dev, struct devic
     request = razer_chroma_misc_get_idle_time();
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2573,36 +2574,36 @@ static ssize_t razer_attr_write_device_idle_time(struct device *dev, struct devi
     request = razer_chroma_misc_set_idle_time(idle_time);
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2622,26 +2623,26 @@ static ssize_t razer_attr_read_charge_low_threshold(struct device *dev, struct d
     request = razer_chroma_misc_get_low_battery_threshold();
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2664,25 +2665,25 @@ static ssize_t razer_attr_write_charge_low_threshold(struct device *dev, struct 
     request = razer_chroma_misc_set_low_battery_threshold(threshold);
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2739,75 +2740,75 @@ static ssize_t razer_attr_write_matrix_custom_frame(struct device *dev, struct d
 
         // Offset now at beginning of RGB data
         switch (device->usb_pid) {
-        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-            request = razer_chroma_standard_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0x3f;
-            break;
+            case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+                request = razer_chroma_standard_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0x3f;
+                break;
 
-        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-        case USB_DEVICE_ID_RAZER_BASILISK:
-        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        case USB_DEVICE_ID_RAZER_VIPER:
-        case USB_DEVICE_ID_RAZER_VIPER_MINI:
-        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-            request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0x3F;
-            break;
+            case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+            case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+            case USB_DEVICE_ID_RAZER_BASILISK:
+            case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            case USB_DEVICE_ID_RAZER_VIPER:
+            case USB_DEVICE_ID_RAZER_VIPER_MINI:
+            case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+            case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+                request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0x3F;
+                break;
 
-        case USB_DEVICE_ID_RAZER_BASILISK_V2:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-            request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0x1f;
-            break;
+            case USB_DEVICE_ID_RAZER_BASILISK_V2:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+                request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0x1f;
+                break;
 
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-            request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0x1f;
-            break;
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+                request = razer_chroma_extended_matrix_set_custom_frame(row_id, start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0x1f;
+                break;
 
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-            request = razer_chroma_misc_one_row_set_custom_frame(start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0x80;
-            break;
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+                request = razer_chroma_misc_one_row_set_custom_frame(start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0x80;
+                break;
 
-        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-            request = razer_chroma_misc_one_row_set_custom_frame(start_col, stop_col, (unsigned char*)&buf[offset]);
-            request.transaction_id.id = 0xFF;
-            break;
+            case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+            case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+                request = razer_chroma_misc_one_row_set_custom_frame(start_col, stop_col, (unsigned char*)&buf[offset]);
+                request.transaction_id.id = 0xFF;
+                break;
 
-        case USB_DEVICE_ID_RAZER_NAGA_X:
-        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-            request = razer_chroma_extended_matrix_set_custom_frame2(row_id, start_col, stop_col, (unsigned char*)&buf[offset], 0);
-            request.transaction_id.id = 0x1f;
-            break;
+            case USB_DEVICE_ID_RAZER_NAGA_X:
+            case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+            case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+                request = razer_chroma_extended_matrix_set_custom_frame2(row_id, start_col, stop_col, (unsigned char*)&buf[offset], 0);
+                request.transaction_id.id = 0x1f;
+                break;
 
-        default:
-            printk(KERN_WARNING "razermouse: matrix_custom_frame not supported for this model\n");
-            return -EINVAL;
+            default:
+                printk(KERN_WARNING "razermouse: matrix_custom_frame not supported for this model\n");
+                return -EINVAL;
         }
 
         razer_send_payload(device, &request, &response);
@@ -2836,73 +2837,73 @@ static ssize_t razer_attr_write_device_mode(struct device *dev, struct device_at
     request = razer_chroma_standard_set_device_mode(buf[0], buf[1]);
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Doesn't have device mode
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-        return count;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:  // Doesn't have device mode
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+            return count;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -2924,72 +2925,72 @@ static ssize_t razer_attr_read_device_mode(struct device *dev, struct device_att
     request = razer_chroma_standard_get_device_mode();
 
     switch(device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        return sprintf(buf, "%d:%d\n", 0, 0);
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G: // Doesn't support device mode, exit early
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            return sprintf(buf, "%d:%d\n", 0, 0);
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-        request.transaction_id.id = 0x3f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+            request.transaction_id.id = 0x3f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-    case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-    case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3010,65 +3011,65 @@ static ssize_t razer_attr_read_led_brightness(struct device *dev, struct device_
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        request = razer_chroma_standard_get_led_brightness(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            request = razer_chroma_standard_get_led_brightness(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_get_brightness(VARSTORE, led_id);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_get_brightness(VARSTORE, led_id);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_get_brightness(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_get_brightness(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        request = razer_chroma_standard_get_led_brightness(VARSTORE, led_id);
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request = razer_chroma_standard_get_led_brightness(VARSTORE, led_id);
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3087,65 +3088,65 @@ static ssize_t razer_attr_write_led_brightness(struct device *dev, struct device
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        request = razer_chroma_standard_set_led_brightness(VARSTORE, led_id, brightness);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            request = razer_chroma_standard_set_led_brightness(VARSTORE, led_id, brightness);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_brightness(VARSTORE, led_id, brightness);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_brightness(VARSTORE, led_id, brightness);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_brightness(VARSTORE, led_id, brightness);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_brightness(VARSTORE, led_id, brightness);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        request = razer_chroma_standard_set_led_brightness(VARSTORE, led_id, brightness);
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request = razer_chroma_standard_set_led_brightness(VARSTORE, led_id, brightness);
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3244,45 +3245,45 @@ static ssize_t razer_attr_write_matrix_effect_wave_common(struct device *dev, st
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-        request = razer_chroma_extended_matrix_effect_wave(VARSTORE, led_id, direction);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+            request = razer_chroma_extended_matrix_effect_wave(VARSTORE, led_id, direction);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_wave(VARSTORE, led_id, direction);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_wave(VARSTORE, led_id, direction);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        request = razer_chroma_standard_matrix_effect_wave(direction);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+            request = razer_chroma_standard_matrix_effect_wave(direction);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_wave not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_wave not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3310,86 +3311,86 @@ static ssize_t razer_attr_write_matrix_effect_spectrum_common(struct device *dev
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_SPECTRUM);
-        request.transaction_id.id = 0x3F;
-        break;
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_SPECTRUM);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-        request = razer_chroma_mouse_extended_matrix_effect_spectrum(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+            request = razer_chroma_mouse_extended_matrix_effect_spectrum(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, led_id);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_spectrum(VARSTORE, led_id);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        request = razer_chroma_standard_matrix_effect_spectrum();
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+            request = razer_chroma_standard_matrix_effect_spectrum();
+            request.transaction_id.id = 0xFF;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_spectrum not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_spectrum not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3425,66 +3426,66 @@ static ssize_t razer_attr_write_matrix_effect_reactive_common(struct device *dev
     speed = (unsigned char)buf[0];
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-        request = razer_chroma_mouse_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+            request = razer_chroma_mouse_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_reactive(VARSTORE, led_id, speed, (struct razer_rgb*)&buf[1]);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        request = razer_chroma_standard_matrix_effect_reactive(speed, (struct razer_rgb*)&buf[1]);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+            request = razer_chroma_standard_matrix_effect_reactive(speed, (struct razer_rgb*)&buf[1]);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_reactive not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_reactive not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3512,152 +3513,152 @@ static ssize_t razer_attr_write_matrix_effect_breath_common(struct device *dev, 
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-        if (count != 3) {
-            printk(KERN_WARNING "razermouse: Static mode only accepts RGB (3byte)\n");
-            return -EINVAL;
-        }
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
+            if (count != 3) {
+                printk(KERN_WARNING "razermouse: Static mode only accepts RGB (3byte)\n");
+                return -EINVAL;
+            }
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+            request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BREATHING);
-        request.transaction_id.id = 0x3F;
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
-        /* Mono-color breath effect */
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
-
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BREATHING);
-        request.transaction_id.id = 0x3F;
-        break;
-
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        switch(count) {
-        case 3: // Single colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_single(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BREATHING);
+            request.transaction_id.id = 0x3F;
             break;
 
-        case 6: // Dual colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_dual(VARSTORE, led_id, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
+            /* Mono-color breath effect */
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
+
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BREATHING);
+            request.transaction_id.id = 0x3F;
             break;
 
-        default: // "Random" colour mode
-            request = razer_chroma_mouse_extended_matrix_effect_breathing_random(VARSTORE, led_id);
-            break;
-        }
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            switch(count) {
+                case 3: // Single colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_single(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+                    break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        switch(count) {
-        case 3: // Single colour mode
-            request = razer_chroma_extended_matrix_effect_breathing_single(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+                case 6: // Dual colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_dual(VARSTORE, led_id, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
+                    break;
+
+                default: // "Random" colour mode
+                    request = razer_chroma_mouse_extended_matrix_effect_breathing_random(VARSTORE, led_id);
+                    break;
+            }
             break;
 
-        case 6: // Dual colour mode
-            request = razer_chroma_extended_matrix_effect_breathing_dual(VARSTORE, led_id, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
-            break;
+                case USB_DEVICE_ID_RAZER_VIPER_8K:
+                case USB_DEVICE_ID_RAZER_NAGA_X:
+                case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+                case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+                case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+                case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+                case USB_DEVICE_ID_RAZER_VIPER:
+                case USB_DEVICE_ID_RAZER_VIPER_MINI:
+                case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+                case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+                case USB_DEVICE_ID_RAZER_BASILISK:
+                case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+                case USB_DEVICE_ID_RAZER_BASILISK_V2:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+                case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+                case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+                case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+                case USB_DEVICE_ID_RAZER_COBRA:
+                case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+                case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+                    switch(count) {
+                        case 3: // Single colour mode
+                            request = razer_chroma_extended_matrix_effect_breathing_single(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+                            break;
 
-        default: // "Random" colour mode
-            request = razer_chroma_extended_matrix_effect_breathing_random(VARSTORE, led_id);
-            break;
-        }
-        break;
+                        case 6: // Dual colour mode
+                            request = razer_chroma_extended_matrix_effect_breathing_dual(VARSTORE, led_id, (struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
+                            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        switch(count) {
-        case 3: // Single colour mode
-            request = razer_chroma_standard_matrix_effect_breathing_single((struct razer_rgb*)&buf[0]);
-            break;
+                        default: // "Random" colour mode
+                            request = razer_chroma_extended_matrix_effect_breathing_random(VARSTORE, led_id);
+                            break;
+                    }
+                    break;
 
-        case 6: // Dual colour mode
-            request = razer_chroma_standard_matrix_effect_breathing_dual((struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
-            break;
+                        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+                        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+                        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+                        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+                        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+                            switch(count) {
+                                case 3: // Single colour mode
+                                    request = razer_chroma_standard_matrix_effect_breathing_single((struct razer_rgb*)&buf[0]);
+                                    break;
 
-        default: // "Random" colour mode
-            request = razer_chroma_standard_matrix_effect_breathing_random();
-            break;
-        }
-        break;
+                                case 6: // Dual colour mode
+                                    request = razer_chroma_standard_matrix_effect_breathing_dual((struct razer_rgb*)&buf[0], (struct razer_rgb*)&buf[3]);
+                                    break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_breath not supported for this model\n");
-        return -EINVAL;
+                                default: // "Random" colour mode
+                                    request = razer_chroma_standard_matrix_effect_breathing_random();
+                                    break;
+                            }
+                            break;
+
+                                default:
+                                    printk(KERN_WARNING "razermouse: matrix_effect_breath not supported for this model\n");
+                                    return -EINVAL;
     }
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request.transaction_id.id = 0x1f;
+            break;
 
-    default:
-        request.transaction_id.id = 0x3f;
-        break;
+        default:
+            request.transaction_id.id = 0x3f;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3690,95 +3691,95 @@ static ssize_t razer_attr_write_matrix_effect_static_common(struct device *dev, 
     }
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+            request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_STATIC);
-        request.transaction_id.id = 0x3F;
-        break;
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_STATIC);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        request = razer_chroma_mouse_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            request = razer_chroma_mouse_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x1f;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_static(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x1f;
+            break;
 
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        request = razer_chroma_standard_matrix_effect_static((struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+            request = razer_chroma_standard_matrix_effect_static((struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_static not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_static not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3811,25 +3812,25 @@ static ssize_t razer_attr_write_matrix_effect_blinking_common(struct device *dev
     }
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+            request = razer_chroma_standard_set_led_rgb(VARSTORE, led_id, (struct razer_rgb*)&buf[0]);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BLINKING);
-        request.transaction_id.id = 0x3F;
-        break;
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_BLINKING);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_blinking not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_blinking not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -3863,118 +3864,118 @@ static ssize_t razer_attr_write_matrix_effect_none_common(struct device *dev, st
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-        deathadder3_5g_set_led_state(device, led_id, false);
-        return count;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+            deathadder3_5g_set_led_state(device, led_id, false);
+            return count;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        orochi_2011_set_led_state(device, led_id, false);
-        request = razer_chroma_misc_set_orochi2011_led(device->orochi2011.led);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            orochi_2011_set_led_state(device, led_id, false);
+            request = razer_chroma_misc_set_orochi2011_led(device->orochi2011.led);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA:
-    case USB_DEVICE_ID_RAZER_NAGA_2012:
-    case USB_DEVICE_ID_RAZER_ABYSSUS:
-    case USB_DEVICE_ID_RAZER_IMPERATOR:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-    case USB_DEVICE_ID_RAZER_TAIPAN:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
-    case USB_DEVICE_ID_RAZER_OUROBOROS:
-    case USB_DEVICE_ID_RAZER_OROCHI_2013:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, false);
-        request.transaction_id.id = 0x3F;
-        break;
-
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-        if (led_id == SCROLL_WHEEL_LED) {
+        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA:
+        case USB_DEVICE_ID_RAZER_NAGA_2012:
+        case USB_DEVICE_ID_RAZER_ABYSSUS:
+        case USB_DEVICE_ID_RAZER_IMPERATOR:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+        case USB_DEVICE_ID_RAZER_TAIPAN:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
+        case USB_DEVICE_ID_RAZER_OUROBOROS:
+        case USB_DEVICE_ID_RAZER_OROCHI_2013:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
             request = razer_chroma_standard_set_led_state(VARSTORE, led_id, false);
             request.transaction_id.id = 0x3F;
-        } else {
+            break;
+
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+            if (led_id == SCROLL_WHEEL_LED) {
+                request = razer_chroma_standard_set_led_state(VARSTORE, led_id, false);
+                request.transaction_id.id = 0x3F;
+            } else {
+                request = razer_chroma_standard_matrix_effect_none();
+                request.transaction_id.id = 0xFF;
+            }
+            break;
+
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+            request = razer_chroma_mouse_extended_matrix_effect_none(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
+
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_VIPER:
+        case USB_DEVICE_ID_RAZER_VIPER_MINI:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK:
+        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+            request = razer_chroma_extended_matrix_effect_none(VARSTORE, led_id);
+            request.transaction_id.id = 0x3F;
+            break;
+
+        case USB_DEVICE_ID_RAZER_VIPER_8K:
+        case USB_DEVICE_ID_RAZER_NAGA_X:
+        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+        case USB_DEVICE_ID_RAZER_COBRA:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+            request = razer_chroma_extended_matrix_effect_none(VARSTORE, led_id);
+            request.transaction_id.id = 0x1f;
+            break;
+
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
             request = razer_chroma_standard_matrix_effect_none();
             request.transaction_id.id = 0xFF;
-        }
-        break;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-        request = razer_chroma_mouse_extended_matrix_effect_none(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
-
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_VIPER:
-    case USB_DEVICE_ID_RAZER_VIPER_MINI:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK:
-    case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-        request = razer_chroma_extended_matrix_effect_none(VARSTORE, led_id);
-        request.transaction_id.id = 0x3F;
-        break;
-
-    case USB_DEVICE_ID_RAZER_VIPER_8K:
-    case USB_DEVICE_ID_RAZER_NAGA_X:
-    case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-    case USB_DEVICE_ID_RAZER_COBRA:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-        request = razer_chroma_extended_matrix_effect_none(VARSTORE, led_id);
-        request.transaction_id.id = 0x1f;
-        break;
-
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-    case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-    case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-    case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-        request = razer_chroma_standard_matrix_effect_none();
-        request.transaction_id.id = 0xFF;
-        break;
-
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -4002,46 +4003,46 @@ static ssize_t razer_attr_write_matrix_effect_on_common(struct device *dev, stru
     struct razer_report response = {0};
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-        deathadder3_5g_set_led_state(device, led_id, true);
-        return count;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+            deathadder3_5g_set_led_state(device, led_id, true);
+            return count;
 
-    case USB_DEVICE_ID_RAZER_OROCHI_2011:
-        orochi_2011_set_led_state(device, led_id, true);
-        request = razer_chroma_misc_set_orochi2011_led(device->orochi2011.led);
-        request.transaction_id.id = 0xFF;
-        break;
+        case USB_DEVICE_ID_RAZER_OROCHI_2011:
+            orochi_2011_set_led_state(device, led_id, true);
+            request = razer_chroma_misc_set_orochi2011_led(device->orochi2011.led);
+            request.transaction_id.id = 0xFF;
+            break;
 
-    case USB_DEVICE_ID_RAZER_NAGA:
-    case USB_DEVICE_ID_RAZER_NAGA_2012:
-    case USB_DEVICE_ID_RAZER_ABYSSUS:
-    case USB_DEVICE_ID_RAZER_IMPERATOR:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX:
-    case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-    case USB_DEVICE_ID_RAZER_TAIPAN:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-    case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
-    case USB_DEVICE_ID_RAZER_OUROBOROS:
-    case USB_DEVICE_ID_RAZER_OROCHI_2013:
-    case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        break;
+        case USB_DEVICE_ID_RAZER_NAGA:
+        case USB_DEVICE_ID_RAZER_NAGA_2012:
+        case USB_DEVICE_ID_RAZER_ABYSSUS:
+        case USB_DEVICE_ID_RAZER_IMPERATOR:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX:
+        case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+        case USB_DEVICE_ID_RAZER_TAIPAN:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+        case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
+        case USB_DEVICE_ID_RAZER_OUROBOROS:
+        case USB_DEVICE_ID_RAZER_OROCHI_2013:
+        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
-        /* Could also be called a mono-color static effect */
-        request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
-        request.transaction_id.id = 0x3F;
-        razer_send_payload(device, &request, &response);
+        case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
+            /* Could also be called a mono-color static effect */
+            request = razer_chroma_standard_set_led_state(VARSTORE, led_id, true);
+            request.transaction_id.id = 0x3F;
+            razer_send_payload(device, &request, &response);
 
-        request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_STATIC);
-        request.transaction_id.id = 0x3F;
-        break;
+            request = razer_chroma_standard_set_led_effect(VARSTORE, led_id, CLASSIC_EFFECT_STATIC);
+            request.transaction_id.id = 0x3F;
+            break;
 
-    default:
-        printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
-        return -EINVAL;
+        default:
+            printk(KERN_WARNING "razermouse: matrix_effect_none not supported for this model\n");
+            return -EINVAL;
     }
 
     razer_send_payload(device, &request, &response);
@@ -4317,13 +4318,13 @@ static ssize_t razer_attr_write_hyperpolling_wireless_dongle_indicator_led_mode(
     request = razer_chroma_misc_set_hyperpolling_wireless_dongle_indicator_led_mode(mode);
 
     switch (device->usb_pid) {
-    case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-        request.transaction_id.id = 0x1F;
-        break;
+        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+            request.transaction_id.id = 0x1F;
+            break;
 
-    default:
-        request.transaction_id.id = 0xFF;
-        break;
+        default:
+            request.transaction_id.id = 0xFF;
+            break;
     }
 
     razer_send_payload(device, &request, &response);
@@ -4556,7 +4557,7 @@ static void input_rep4_code(struct input_dev *input, u8 code, __s32 value)
 static enum hrtimer_restart wheel_tilt_repeat(struct hrtimer *timer)
 {
     struct razer_mouse_device *dev =
-        container_of(timer, struct razer_mouse_device, repeat_timer);
+    container_of(timer, struct razer_mouse_device, repeat_timer);
     input_report_rel(dev->input, REL_HWHEEL, dev->hwheel_value);
     input_report_rel(dev->input, REL_HWHEEL_HI_RES, dev->hwheel_value * SCROLL_DETENT);
     input_sync(dev->input);
@@ -4579,7 +4580,7 @@ static void tilt_hwheel_start(struct razer_mouse_device *rdev,
         rdev->hwheel_value = rel_value;
         hrtimer_start_range_ns(
             &rdev->repeat_timer, ms_to_ktime(rdev->tilt_repeat_delay),
-            1000, HRTIMER_MODE_REL);
+                               1000, HRTIMER_MODE_REL);
     }
 }
 
@@ -4687,92 +4688,92 @@ static int razer_raw_event(struct hid_device *hdev, struct hid_report *report, u
     struct razer_mouse_device *rdev = hid_get_drvdata(hdev);
 
     switch (hdev->product) {
-    case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-    case USB_DEVICE_ID_RAZER_NAGA_2014:
-    case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-    case USB_DEVICE_ID_RAZER_BASILISK_V2:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-    case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-        /* Detect wheel tilt edges */
-        if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_MOUSE) {
-            int i;
-            for (i = 0; i < ARRAY_SIZE(button_mappings); i++) {
-                const struct button_mapping *mapping = &button_mappings[i];
-                u8 mask = 1 << mapping->bit;
-                if (mapping->hwheel_value && rdev->tilt_hwheel) {
-                    __s32 rel_value = mapping->hwheel_value;
-                    if (rising_bit(rdev->button_byte, data[0], mask))
-                        tilt_hwheel_start(rdev, rel_value);
-                    if (falling_bit(rdev->button_byte, data[0], mask))
-                        tilt_hwheel_stop(rdev);
-                } else if (edge_bit(rdev->button_byte, data[0], mask)) {
-                    unsigned int code = mapping->code;
-                    input_button_msc_scan(rdev->input, code);
-                    input_report_key(rdev->input, code, !!(data[0] & mask));
-                    input_sync(rdev->input);
+        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+        case USB_DEVICE_ID_RAZER_NAGA_2014:
+        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+        case USB_DEVICE_ID_RAZER_BASILISK_V2:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+            /* Detect wheel tilt edges */
+            if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_MOUSE) {
+                int i;
+                for (i = 0; i < ARRAY_SIZE(button_mappings); i++) {
+                    const struct button_mapping *mapping = &button_mappings[i];
+                    u8 mask = 1 << mapping->bit;
+                    if (mapping->hwheel_value && rdev->tilt_hwheel) {
+                        __s32 rel_value = mapping->hwheel_value;
+                        if (rising_bit(rdev->button_byte, data[0], mask))
+                            tilt_hwheel_start(rdev, rel_value);
+                        if (falling_bit(rdev->button_byte, data[0], mask))
+                            tilt_hwheel_stop(rdev);
+                    } else if (edge_bit(rdev->button_byte, data[0], mask)) {
+                        unsigned int code = mapping->code;
+                        input_button_msc_scan(rdev->input, code);
+                        input_report_key(rdev->input, code, !!(data[0] & mask));
+                        input_sync(rdev->input);
+                    }
                 }
+                rdev->button_byte = data[0];
             }
-            rdev->button_byte = data[0];
-        }
 
-        /* Detect buttons reported on the keyboard interface */
-        if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_KEYBOARD && size == 16 && data[0] == 0x04) {
-            struct razer_mouse_device *m_rdev = find_mouse(hdev);
-            int i;
+            /* Detect buttons reported on the keyboard interface */
+            if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_KEYBOARD && size == 16 && data[0] == 0x04) {
+                struct razer_mouse_device *m_rdev = find_mouse(hdev);
+                int i;
 
-            if (!m_rdev) {
-                printk(KERN_WARNING "razermouse: Couldn't find mouse intf from kbd intf\n");
+                if (!m_rdev) {
+                    printk(KERN_WARNING "razermouse: Couldn't find mouse intf from kbd intf\n");
+                    return 1;
+                }
+
+                for (i = 1; i < size; i++) {
+                    if (!search(rdev->rep4 + 1, data[i], size - 1))
+                        input_rep4_code(m_rdev->input, data[i], 1);
+                    if (!search(data + 1, rdev->rep4[i], size - 1))
+                        input_rep4_code(m_rdev->input, rdev->rep4[i], 0);
+                }
+                memcpy(rdev->rep4, data, 16);
                 return 1;
             }
+            break;
+        default:
+            // The event were looking for is 16 bytes long and starts with 0x04
+            if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_KEYBOARD && size == 16 && data[0] == 0x04) {
+                // Convert 04... to 0100...
+                int index = size-1; // This way we start at 2nd last value, does subtract 1 from the 15key rollover though (not an issue cmon)
 
-            for (i = 1; i < size; i++) {
-                if (!search(rdev->rep4 + 1, data[i], size - 1))
-                    input_rep4_code(m_rdev->input, data[i], 1);
-                if (!search(data + 1, rdev->rep4[i], size - 1))
-                    input_rep4_code(m_rdev->input, rdev->rep4[i], 0);
-            }
-            memcpy(rdev->rep4, data, 16);
-            return 1;
-        }
-        break;
-    default:
-        // The event were looking for is 16 bytes long and starts with 0x04
-        if(intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_KEYBOARD && size == 16 && data[0] == 0x04) {
-            // Convert 04... to 0100...
-            int index = size-1; // This way we start at 2nd last value, does subtract 1 from the 15key rollover though (not an issue cmon)
+                while(--index > 0) {
+                    u8 cur_value = data[index];
+                    if(cur_value == 0x00) { // Skip 0x00
+                        continue;
+                    }
 
-            while(--index > 0) {
-                u8 cur_value = data[index];
-                if(cur_value == 0x00) { // Skip 0x00
-                    continue;
+                    switch(cur_value) {
+                        case 0x20: // DPI Up
+                            cur_value = 0x68; // F13
+                            break;
+                        case 0x21: // DPI Down
+                            cur_value = 0x69; // F14
+                            break;
+                        case 0x22: // Wheel Left
+                            cur_value = 0x6A; // F15
+                            break;
+                        case 0x23: // Wheel Right
+                            cur_value = 0x6B; // F16
+                            break;
+                    }
+
+                    data[index+1] = cur_value;
                 }
 
-                switch(cur_value) {
-                case 0x20: // DPI Up
-                    cur_value = 0x68; // F13
-                    break;
-                case 0x21: // DPI Down
-                    cur_value = 0x69; // F14
-                    break;
-                case 0x22: // Wheel Left
-                    cur_value = 0x6A; // F15
-                    break;
-                case 0x23: // Wheel Right
-                    cur_value = 0x6B; // F16
-                    break;
-                }
-
-                data[index+1] = cur_value;
+                data[0] = 0x01;
+                data[1] = 0x00;
+                return 1;
             }
-
-            data[0] = 0x01;
-            data[1] = 0x00;
-            return 1;
-        }
-        break;
+            break;
     }
 
     return 0;
@@ -4793,8 +4794,8 @@ razer_input_mapping(struct hid_device *hdev, struct hid_input *hidinput,
     if (field->application == HID_UP_GENDESK
         && usage->hid == (HID_UP_GENDESK | 0x0003)) {
         return -1;
-    }
-    return 0;
+        }
+        return 0;
 }
 
 /**
@@ -4810,27 +4811,27 @@ static int razer_input_configured(struct hid_device *hdev,
 
     if (intf->cur_altsetting->desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_MOUSE) {
         switch (hdev->product) {
-        case USB_DEVICE_ID_RAZER_BASILISK_V2:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-            /* Linux HID doesn't detect the Basilisk V2's tilt wheel
-             * or buttons beyond the first 5 */
-            input_set_capability(hidinput->input, EV_KEY, BTN_TASK);
-            input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 8);
-            input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 9);
-            input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 10);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-        case USB_DEVICE_ID_RAZER_NAGA_2014:
-        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-            input_set_capability(hidinput->input, EV_REL, REL_HWHEEL);
-            input_set_capability(hidinput->input, EV_REL, REL_HWHEEL_HI_RES);
-            input_set_capability(hidinput->input, EV_KEY, BTN_FORWARD);
-            input_set_capability(hidinput->input, EV_KEY, BTN_BACK);
-            break;
+            case USB_DEVICE_ID_RAZER_BASILISK_V2:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+                /* Linux HID doesn't detect the Basilisk V2's tilt wheel
+                 * or buttons beyond the first 5 */
+                input_set_capability(hidinput->input, EV_KEY, BTN_TASK);
+                input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 8);
+                input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 9);
+                input_set_capability(hidinput->input, EV_KEY, BTN_MOUSE + 10);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+            case USB_DEVICE_ID_RAZER_NAGA_2014:
+            case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+                input_set_capability(hidinput->input, EV_REL, REL_HWHEEL);
+                input_set_capability(hidinput->input, EV_REL, REL_HWHEEL_HI_RES);
+                input_set_capability(hidinput->input, EV_KEY, BTN_FORWARD);
+                input_set_capability(hidinput->input, EV_KEY, BTN_BACK);
+                break;
         }
     }
 
@@ -4897,25 +4898,25 @@ static int razer_mouse_probe(struct hid_device *hdev, const struct hid_device_id
     razer_mouse_init(dev, intf, hdev);
 
     switch(dev->usb_pid) {
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-    case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-        expected_subclass = 0x01;
-        break;
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+            expected_subclass = 0x01;
+            break;
     }
 
     if(dev->usb_interface_protocol == USB_INTERFACE_PROTOCOL_MOUSE
-       && (expected_subclass == 0xFF || dev->usb_interface_subclass == expected_subclass)) {
+        && (expected_subclass == 0xFF || dev->usb_interface_subclass == expected_subclass)) {
         CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_version);
-        CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_test);
-        CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_firmware_version);
-        CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_type);
-        CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_serial);
-        CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_mode);
+    CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_test);
+    CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_firmware_version);
+    CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_type);
+    CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_serial);
+    CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_device_mode);
 
-        switch(dev->usb_pid) {
+    switch(dev->usb_pid) {
         case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
         case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_poll_rate);
@@ -5881,32 +5882,32 @@ static int razer_mouse_probe(struct hid_device *hdev, const struct hid_device_id
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
             break;
+    }
+
         }
 
-    }
+        hid_set_drvdata(hdev, dev);
+        dev_set_drvdata(&hdev->dev, dev);
 
-    hid_set_drvdata(hdev, dev);
-    dev_set_drvdata(&hdev->dev, dev);
+        retval = hid_parse(hdev);
+        if(retval)    {
+            hid_err(hdev, "parse failed\n");
+            goto exit_free;
+        }
+        retval = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
+        if (retval) {
+            hid_err(hdev, "hw start failed\n");
+            goto exit_free;
+        }
 
-    retval = hid_parse(hdev);
-    if(retval)    {
-        hid_err(hdev, "parse failed\n");
-        goto exit_free;
-    }
-    retval = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
-    if (retval) {
-        hid_err(hdev, "hw start failed\n");
-        goto exit_free;
-    }
+        //razer_reset(usb_dev);
+        //razer_activate_macro_keys(usb_dev);
+        //msleep(3000);
+        return 0;
 
-    //razer_reset(usb_dev);
-    //razer_activate_macro_keys(usb_dev);
-    //msleep(3000);
-    return 0;
-
-exit_free:
-    kfree(dev);
-    return retval;
+        exit_free:
+        kfree(dev);
+        return retval;
 }
 
 /**
@@ -5929,979 +5930,979 @@ static void razer_mouse_disconnect(struct hid_device *hdev)
         device_remove_file(&hdev->dev, &dev_attr_device_mode);
 
         switch(usb_dev->descriptor.idProduct) {
-        case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
-        case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-            device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_V2:
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
-        case USB_DEVICE_ID_RAZER_BASILISK:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_V3:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_mode);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_acceleration);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_smart_reel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_mode);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_acceleration);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_smart_reel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
-        case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            break;
-
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_OROCHI_2011:
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            break;
-
-        case USB_DEVICE_ID_RAZER_ABYSSUS:
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            break;
-
-        case USB_DEVICE_ID_RAZER_IMPERATOR:
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            break;
-
-        case USB_DEVICE_ID_RAZER_OUROBOROS:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            break;
-
-        case USB_DEVICE_ID_RAZER_OROCHI_2013:
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            break;
-
-        case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_HEX:
-        case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
-        case USB_DEVICE_ID_RAZER_TAIPAN:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_2014:
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_NAGA:
-        case USB_DEVICE_ID_RAZER_NAGA_2012:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_on);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
-        case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            break;
-
-        case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            break;
-
-        case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_X:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-
-            device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
-            device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
-            break;
-
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_charge_effect);
-            device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_VIPER:
-        case USB_DEVICE_ID_RAZER_VIPER_MINI:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
-        case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
-        case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
-        case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
-        case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
-        case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
-        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
-        case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
-        case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
-        case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
-            device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
-            fallthrough;
-        case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
-            device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_pair);
-            device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_unpair);
-            break;
-
-        case USB_DEVICE_ID_RAZER_VIPER_8K:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
-            device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
-            break;
-
-        case USB_DEVICE_ID_RAZER_COBRA:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-
-            device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
-            break;
-
-        case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
-
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            break;
-
-        case USB_DEVICE_ID_RAZER_NAGA_EPIC:
-            device_remove_file(&hdev->dev, &dev_attr_dpi);
-            device_remove_file(&hdev->dev, &dev_attr_poll_rate);
-            device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
-            device_remove_file(&hdev->dev, &dev_attr_charge_level);
-            device_remove_file(&hdev->dev, &dev_attr_charge_status);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
-            device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
-            break;
+            case USB_DEVICE_ID_RAZER_ABYSSUS_ELITE_DVA_EDITION:
+            case USB_DEVICE_ID_RAZER_ABYSSUS_ESSENTIAL:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_RECEIVER:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+                device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_V2:
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_DEATHADDER_ELITE:
+            case USB_DEVICE_ID_RAZER_BASILISK:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_V3:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_mode);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_acceleration);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_smart_reel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_mode);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_acceleration);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_smart_reel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_ESSENTIAL:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_MINI:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRELESS:
+            case USB_DEVICE_ID_RAZER_MAMBA_2012_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                break;
+
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_MAMBA_TE_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_OROCHI_2011:
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                break;
+
+            case USB_DEVICE_ID_RAZER_ABYSSUS:
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                break;
+
+            case USB_DEVICE_ID_RAZER_IMPERATOR:
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                break;
+
+            case USB_DEVICE_ID_RAZER_OUROBOROS:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_2013:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                break;
+
+            case USB_DEVICE_ID_RAZER_OROCHI_2013:
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                break;
+
+            case USB_DEVICE_ID_RAZER_OROCHI_CHROMA:
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_HEX:
+            case USB_DEVICE_ID_RAZER_NAGA_HEX_RED:
+            case USB_DEVICE_ID_RAZER_TAIPAN:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_2014:
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_NAGA:
+            case USB_DEVICE_ID_RAZER_NAGA_2012:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_on);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA:
+            case USB_DEVICE_ID_RAZER_NAGA_EPIC_CHROMA_DOCK:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_3_5G_BLACK:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                break;
+
+            case USB_DEVICE_ID_RAZER_ABYSSUS_V2:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_CHROMA:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_3500:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_blinking);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_2000:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DIAMONDBACK_CHROMA:
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_backlight_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_ABYSSUS_1800:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_1800:
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                break;
+
+            case USB_DEVICE_ID_RAZER_ABYSSUS_2000:
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_on);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_X:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_LEFT_HANDED_2020:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_left_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_left_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_right_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_right_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+
+                device_remove_file(&hdev->dev, &dev_attr_tilt_hwheel);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat_delay);
+                device_remove_file(&hdev->dev, &dev_attr_tilt_repeat);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_WHITE_EDITION:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_ESSENTIAL_2021:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_static);
+                break;
+
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_RECEIVER:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRELESS:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_charge_effect);
+                device_remove_file(&hdev->dev, &dev_attr_charge_colour);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_VIPER_ULTIMATE_WIRED:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_PRO_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_VIPER:
+            case USB_DEVICE_ID_RAZER_VIPER_MINI:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_ATHERIS_RECEIVER:
+            case USB_DEVICE_ID_RAZER_BASILISK_X_HYPERSPEED:
+            case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
+            case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
+            case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
+            case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
+            case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRED_ALT:
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V3_PRO_WIRELESS_ALT:
+            case USB_DEVICE_ID_RAZER_PRO_CLICK_MINI_RECEIVER:
+            case USB_DEVICE_ID_RAZER_VIPER_V3_HYPERSPEED:
+            case USB_DEVICE_ID_RAZER_VIPER_V3_PRO_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRELESS:
+                device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
+                fallthrough;
+            case USB_DEVICE_ID_RAZER_VIPER_MINI_SE_WIRED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_HYPERPOLLING_WIRELESS_DONGLE:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_indicator_led_mode);
+                device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_pair);
+                device_remove_file(&hdev->dev, &dev_attr_hyperpolling_wireless_dongle_unpair);
+                break;
+
+            case USB_DEVICE_ID_RAZER_VIPER_8K:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_effect_custom);
+                device_remove_file(&hdev->dev, &dev_attr_matrix_custom_frame);
+                break;
+
+            case USB_DEVICE_ID_RAZER_COBRA:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+
+                device_remove_file(&hdev->dev, &dev_attr_logo_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_logo_matrix_effect_breath);
+                break;
+
+            case USB_DEVICE_ID_RAZER_DEATHADDER_V3:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_V2_HYPERSPEED_RECEIVER:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_BASILISK_V3_X_HYPERSPEED:
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
+
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_wave);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_reactive);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_breath);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                break;
+
+            case USB_DEVICE_ID_RAZER_NAGA_EPIC:
+                device_remove_file(&hdev->dev, &dev_attr_dpi);
+                device_remove_file(&hdev->dev, &dev_attr_poll_rate);
+                device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
+                device_remove_file(&hdev->dev, &dev_attr_device_idle_time);
+                device_remove_file(&hdev->dev, &dev_attr_charge_level);
+                device_remove_file(&hdev->dev, &dev_attr_charge_status);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_led_brightness);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_none);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_static);
+                device_remove_file(&hdev->dev, &dev_attr_scroll_matrix_effect_spectrum);
+                break;
         }
 
     }
