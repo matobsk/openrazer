@@ -795,14 +795,14 @@ static ssize_t razer_attr_write_matrix_effect_none(struct device *dev, struct de
         case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
+        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
             request = razer_chroma_extended_matrix_effect_none(VARSTORE, ZERO_LED);
             request.transaction_id.id = 0x1f;
             break;
 
         case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS: // TODO: this is probably wrong?
         case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRED: // TODO: this is probably wrong?
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRED:
-        case USB_DEVICE_ID_RAZER_NAGA_V2_PRO_WIRELESS:
             request = razer_chroma_standard_matrix_effect_none();
             request.transaction_id.id = 0xFF;
             break;

@@ -1017,11 +1017,9 @@ class RazerNagaV2ProWired(__RazerDeviceBrightnessSuspend):
     HAS_MATRIX = True
     WAVE_DIRS = (1, 2)
     MATRIX_DIMS = [1, 3]
+    EVENT_FILE_REGEX = re.compile(r'.*Razer_Naga_V2_Pro-if01-event-kbd')
 
-    DEDICATED_MACRO_KEYS = True
     METHODS = ['get_device_type_mouse', 'max_dpi', 'get_dpi_xy', 'set_dpi_xy', 'get_poll_rate', 'set_poll_rate', 'get_dpi_stages', 'set_dpi_stages',
-               # Macros
-               'get_macros', 'delete_macro', 'add_macro',
                # Battery
                'get_battery', 'is_charging', 'get_idle_time', 'set_idle_time', 'get_low_battery_threshold', 'set_low_battery_threshold',
                # Logo

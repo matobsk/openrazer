@@ -27,8 +27,9 @@ class _MacroKeyboard(_RazerDeviceBrightnessSuspend):
 
         self.key_manager = _KeyboardKeyManager(self._device_number, self.event_files, self, use_epoll=True, testing=self._testing)
 
-        self.logger.info('Putting device into driver mode. Daemon will handle special functionality')
-        self.set_device_mode(0x03, 0x00)  # Driver mode
+        if self.USB_PID != 0x02A6:
+            self.logger.info('Putting device into driver mode. Daemon will handle special functionality')
+            self.set_device_mode(0x03, 0x00)  # Driver mode
 
     def _close(self):
         """
@@ -58,8 +59,9 @@ class _MacroKeyboard(_RazerDeviceBrightnessSuspend):
         """
         super()._resume_device()
 
-        self.logger.info('Putting device back into driver mode.')
-        self.set_device_mode(0x03, 0x00)  # Driver mode
+        if self.USB_PID != 0x02A6:
+            self.logger.info('Putting device back into driver mode.')
+            self.set_device_mode(0x03, 0x00)  # Driver mode
 
 
 class _RippleKeyboard(_MacroKeyboard):
@@ -533,6 +535,27 @@ class RazerHuntsmanV2(_RippleKeyboard):
 
     USB_VID = 0x1532
     USB_PID = 0x026C
+    HAS_MATRIX = True
+    MATRIX_DIMS = [6, 22]
+    POLL_RATES = [125, 250, 500, 1000, 2000, 4000, 8000]
+    METHODS = ['get_device_type_keyboard', 'set_wave_effect', 'set_static_effect', 'set_spectrum_effect',
+               'set_reactive_effect', 'set_none_effect', 'set_breath_random_effect', 'set_breath_single_effect', 'set_breath_dual_effect',
+               'set_custom_effect', 'set_key_row', 'get_game_mode', 'set_game_mode', 'get_macro_mode', 'set_macro_mode',
+               'get_macro_effect', 'set_macro_effect', 'get_macros', 'delete_macro', 'add_macro',
+               'get_poll_rate', 'set_poll_rate', 'get_supported_poll_rates', 'get_keyswitch_optimization', 'set_keyswitch_optimization',
+               'set_starlight_random_effect', 'set_starlight_single_effect', 'set_starlight_dual_effect',
+               'set_ripple_effect', 'set_ripple_effect_random_colour']
+
+    DEVICE_IMAGE = "https://dl.razerzone.com/src/5642/5642-1-en-v1.png"
+
+class RazerHuntsmanV3Pro(_RippleKeyboard):
+    """
+    Class for the Razer Huntsman V2
+    """
+    EVENT_FILE_REGEX = re.compile(r'.*Razer_Huntsman_V3_Pro(-if01)?-event-kbd')
+
+    USB_VID = 0x1532
+    USB_PID = 0x02A6
     HAS_MATRIX = True
     MATRIX_DIMS = [6, 22]
     POLL_RATES = [125, 250, 500, 1000, 2000, 4000, 8000]
