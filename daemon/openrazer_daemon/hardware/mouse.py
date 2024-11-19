@@ -1008,7 +1008,7 @@ class RazerNagaProWireless(RazerNagaProWired):
     METHODS = RazerNagaProWired.METHODS + ['set_charge_effect', 'set_charge_colour']
 
 
-class RazerNagaV2ProWired(__RazerDeviceBrightnessSuspend):
+class RazerNagaV2ProWired(__RazerDevice):
     """
     Class for the Razer Naga V2 Pro (Wired)
     """
@@ -1016,8 +1016,8 @@ class RazerNagaV2ProWired(__RazerDeviceBrightnessSuspend):
     USB_PID = 0x00A7
     HAS_MATRIX = True
     WAVE_DIRS = (1, 2)
-    MATRIX_DIMS = [1, 3]
-    EVENT_FILE_REGEX = re.compile(r'.*Razer_Naga_V2_Pro-if01-event-kbd')
+    MATRIX_DIMS = [1, 2]
+    EVENT_FILE_REGEX = re.compile(r'.*Razer_Naga_V2_Pro-if0(1|2)-event-kbd')
 
     METHODS = ['get_device_type_mouse', 'max_dpi', 'get_dpi_xy', 'set_dpi_xy', 'get_poll_rate', 'set_poll_rate', 'get_dpi_stages', 'set_dpi_stages',
                # Battery
@@ -1025,8 +1025,9 @@ class RazerNagaV2ProWired(__RazerDeviceBrightnessSuspend):
                # Logo
                'get_logo_brightness', 'set_logo_brightness',
                'set_logo_wave', 'set_logo_static', 'set_logo_spectrum', 'set_logo_none', 'set_logo_reactive', 'set_logo_breath_random', 'set_logo_breath_single', 'set_logo_breath_dual',
-               # Thumbgrid
-               'set_static_effect', 'set_spectrum_effect', 'set_reactive_effect', 'set_none_effect', 'set_breath_random_effect', 'set_breath_single_effect', 'set_breath_dual_effect',
+               # Left side left_led_brightness/left_matrix_effect_breath/...
+               'get_backlight_brightness', 'set_backlight_brightness',
+               'set_backlight_wave', 'set_backlight_static', 'set_backlight_spectrum', 'set_backlight_none', 'set_backlight_reactive', 'set_backlight_breath_random', 'set_backlight_breath_single', 'set_backlight_breath_dual',
                # Custom frame
                'set_custom_effect', 'set_key_row']
 
